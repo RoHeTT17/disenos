@@ -1,0 +1,22 @@
+{
+    "nombreApp" : "Diseños",
+    "rutas" : [
+        {
+            "ruta" : "basic",
+            "icon" : "add_alert",
+            "texto": "Ejemplo basico"
+        },
+        {
+            "ruta" : "scroll",
+            "icon" : "accessibility",
+            "texto": "Ejemplo con Pageview y Stack"
+        },
+        {
+            "ruta" : "blur",
+            "icon" : "folder_open",
+            "texto": "Ejemplo con Blur y gradiante"
+        }
+        
+    
+    ]
+}

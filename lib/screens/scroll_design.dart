@@ -57,8 +57,9 @@ class Background extends StatelessWidget {
     return Container(
       color: Color(0xff30BAD6),
       height: double.infinity,
+      //width: double.infinity,
       alignment: Alignment.topCenter,
-      child: Image( image: AssetImage('assets/scroll-1.png'),));
+      child: Image( image: AssetImage('assets/scroll-1.png'), width: double.infinity,));
   }
 }
 
