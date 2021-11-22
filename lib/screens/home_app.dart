@@ -21,25 +21,55 @@ class CrearBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    List<dynamic>? data;
+
     return FutureBuilder(
       future: menuProvider.cargarMenu(),
       initialData: [],
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
 
-        return ListView(
-           children: _listaItems(snapshot.data, context)
-           //children:[crearOpciones(data: [snapshot.data],)] 
-            
-        );
+        /*return ListView(
+          //intentar agregar un ListViewBuilder
+           children: _listaItems(snapshot.data, context)            
+        );*/
 
-
+        return ListView.builder(
+          itemCount: 3,
+          itemBuilder: (context , int index){
+            return Column(
+                  children: [
+                             crearMenu(data: snapshot.data[index]),
+                             Divider()
+                            ],
+            );
+          });
         },
-
     );
   }
 }
 
-List<Widget> _listaItems(List<dynamic>? data,BuildContext context) {
+class crearMenu extends StatelessWidget {
+
+ final data;
+
+  const crearMenu({Key? key, this.data}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(data['ruta']),
+      //leading: getIcon(element['icon']),
+      trailing:  Icon(Icons.keyboard_arrow_right),
+      onTap: (){
+          Navigator.pushNamed(context, data['ruta']);
+      },
+    
+    );
+  }
+}
+
+/*List<Widget> _listaItems(List<dynamic>? data,BuildContext context) {
     
     final List<Widget> opciones = [];
 
@@ -63,7 +93,7 @@ List<Widget> _listaItems(List<dynamic>? data,BuildContext context) {
 
      return opciones;   
 
-  }
+  }*/
 
 
 /*class crearOpciones extends StatelessWidget {
